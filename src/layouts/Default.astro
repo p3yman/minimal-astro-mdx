@@ -1,0 +1,23 @@
+---
+import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.astro";
+
+const title = "Instruqt";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MDX + Astro</title>
+  </head>
+  <body>
+    <Header title={title} />
+    <div class="flex">
+      <Navigation />
+      <div class="px-16 py-8">
+        <slot />
+      </div>
+    </div>
+  </body>
+</html>

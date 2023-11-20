@@ -1,0 +1,39 @@
+---
+const { item } = Astro.props;
+const isExternalLink = (link: string) => link.startsWith("http");
+---
+
+<div>
+  {
+    item.link ? (
+      isExternalLink(item.link) ? (
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cursor-pointer flex items-center px-4 py-2 rounded-md text-black/60 hover:bg-primary-light/10 hover:text-primary"
+        >
+          {item.title}
+        </a>
+      ) : (
+        <a
+          href={item.link}
+          class="cursor-pointer flex items-center px-4 py-2 rounded-md text-black/60 hover:bg-primary-light/10 hover:text-primary"
+        >
+          {item.title}
+        </a>
+      )
+    ) : (
+      <h2 class="px-4 py-2 mt-3 font-bold">{item.title}</h2>
+    )
+  }
+  {
+    item.children && item.children.length > 0 && (
+      <div class="pl-4">
+        {item.children.map((child) => (
+          <Astro.self key={child.title} item={child} />
+        ))}
+      </div>
+    )
+  }
+</div>
