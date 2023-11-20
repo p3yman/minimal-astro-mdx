@@ -1,9 +1,13 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "/Users/p3yman/Work/Instruqt/minimal-astro-mdx",
     "paths": {
-      "@layouts/*": ["./src/layouts/*"]
-    }
+      "@layouts/*": [
+        "./src/layouts/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
